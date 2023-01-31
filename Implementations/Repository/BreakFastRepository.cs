@@ -27,7 +27,7 @@ namespace BuberBreakfast.Implementations.Repository
         {
             _context.BreakFasts.Add(breakfast);
             _context.SaveChanges();
-            return breakfast;
+            return breakfast; 
         }
 
         public bool Delete(int id)

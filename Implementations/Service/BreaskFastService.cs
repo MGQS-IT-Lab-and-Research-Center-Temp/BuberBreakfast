@@ -10,7 +10,7 @@ namespace BuberBreakfast.Implementations.Service
     public class BreaskFastService : IBreakFastService
     {
         private readonly ApplicationContext _applicationContext;
-        private static IBreakFastRepository _breakFastRepository;
+        private readonly IBreakFastRepository _breakFastRepository;
 
         public BreaskFastService(ApplicationContext context,IBreakFastRepository breakFastRepository)
         {
@@ -30,7 +30,7 @@ namespace BuberBreakfast.Implementations.Service
             }
             else
             {
-                _breakFastRepository.Delete(id);
+                _breakFastRepository.Delete(breakfast.Id);
                 return new BreakFastResponseModel
                 { Message = "BreakFast Succesfully deleted",
                   Status = true
