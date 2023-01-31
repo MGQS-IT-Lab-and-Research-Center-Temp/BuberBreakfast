@@ -1,7 +1,6 @@
 ﻿using BuberBreakfast.Context;
 using BuberBreakfast.Contracts.Repository;
 using BuberBreakfast.Entities;
-using System.Xml.Linq;
 
 namespace BuberBreakfast.Implementations.Repository
 {
@@ -27,29 +26,23 @@ namespace BuberBreakfast.Implementations.Repository
         {
             _context.BreakFasts.Add(breakfast);
             _context.SaveChanges();
-            return breakfast;
+            return breakfast; 
         }
 
         public bool Delete(int id)
         {
             var breakfast = GetById(id);
             _context.BreakFasts.Remove(breakfast);
+            _context.SaveChanges();
             return true;
         }
-
-        public BreakFast FindBreakFast(int id)
+        public IList<BreakFast> GetAll()
         {
-            var breakfast = _context.BreakFasts.Find(id);
-            return breakfast;
-        }
-
-        public List<BreakFast> GetAll()
-        {
-            var breakfasts = _context.BreakFasts.Select(user => new BreakFast
+            var breakfasts = _context.BreakFasts.Select( bf => new BreakFast
             {
-                Id = user.Id,
-                Name = user.Name,
-                Description = user.Description
+                Id = bf.Id,
+                Name = bf.Name,
+                Description = bf.Description
             }).ToList();
             return breakfasts;
         }

@@ -5,10 +5,10 @@ namespace BuberBreakfast.Contracts.Service
 {
     public interface IBreakFastService
     {
-        BreakFastResponseModel RegisterBreakFast(BreakFastDto request);
+        BreakFastResponseModel CreateBreakFast(BreakFastDto request);
         BreakFastResponseModel GetBreakFast(int id);
         BreakFastResponseModel DeleteBreakFast(int id);
-        BreakFastResponseModel UpdateBreakFast(int id, BreakFastDto request);
-        BreakFastResponseModel PrintAllBreakFast(BreakFast breakFast);
+        BreakFastResponseModel UpdateBreakFast(int id, UpdateBreakfastDTO request);
+        BreakFastsResponseModels PrintAllBreakFast();
     }
 }

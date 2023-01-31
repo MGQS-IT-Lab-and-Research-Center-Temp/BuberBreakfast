@@ -1,4 +1,8 @@
 using BuberBreakfast.Context;
+using BuberBreakfast.Contracts.Repository;
+using BuberBreakfast.Contracts.Service;
+using BuberBreakfast.Implementations.Repository;
+using BuberBreakfast.Implementations.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace BuberBreakfast
@@ -12,8 +16,9 @@ namespace BuberBreakfast
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddDbContext<ApplicationContext>(options => options.UseMySQL("ApplicationContext"));
-
+            builder.Services.AddDbContext<ApplicationContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("ApplicationContext")));
+            builder.Services.AddScoped<IBreakFastRepository, BreakFastRepository>();
+            builder.Services.AddScoped<IBreakFastService,BreaskFastService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -29,7 +34,7 @@ namespace BuberBreakfast
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=BreakFast}/{action=Index}/{id?}");
 
             app.Run();
         }

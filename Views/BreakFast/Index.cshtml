@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BuberBreakfast.Entities.BreakFast>
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-danger table-striped">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Details</td>
+                    <td>Update</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var breakfast in Model)
+                {
+                    <tr>
+                        <td>@breakfast.Id</td>
+                        <td>@breakfast.Name</td>
+                        <td><a asp-controller="BreakFast" asp-action="Details" asp-route-id="@breakfast.Id">View Details</a></td>
+                        <td><a asp-controller="BreakFast" asp-action="Update" asp-route-id="@breakfast.Id">Update</a></td>
+                        <td><a asp-controller="BreakFast" asp-action="DeleteBreakFast" asp-route-id ="@breakfast.Id">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <span > 
+            <a asp-action="Create">Create breakfast</a>
+        </span>
+    </div>
+</div>

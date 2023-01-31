@@ -1,0 +1,48 @@
+﻿@model BuberBreakfast.DTO.BreakFastDto
+
+@{
+    Layout = "_Layout";
+    var title = "CREATE BreakFast";
+    ViewData["Title"] = title;
+}
+
+<style>
+    .input-validation-error {
+        border-color: red;
+    }
+</style>
+
+<h2>@title</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form class="m-1 p-1" method="post">
+    <div class="form-group">
+        <label asp-for="BreakFastId"></label>
+        <input asp-for="BreakFastId" class="form-control" />
+        <span asp-validation-for="BreakFastId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" type="text" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="StartDateTime"></label>
+        <input asp-for="StartDateTime" type="text" class="form-control" />
+        <span asp-validation-for="StartDateTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EndDateTime"></label>
+        <input asp-for="EndDateTime" type="text" class="form-control" />
+        <span asp-validation-for="EndDateTime" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<span>
+    <a asp-action="Index">List Of Breakfast</a>
+</span>
