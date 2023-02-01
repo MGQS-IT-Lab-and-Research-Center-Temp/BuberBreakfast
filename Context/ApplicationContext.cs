@@ -10,6 +10,7 @@ namespace BuberBreakfast.Context
 
         }
          public DbSet<BreakFast> BreakFasts { get; set; }
+        
     }
 }
  

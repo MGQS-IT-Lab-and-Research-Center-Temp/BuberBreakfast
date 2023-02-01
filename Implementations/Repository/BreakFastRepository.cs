@@ -36,7 +36,7 @@ namespace BuberBreakfast.Implementations.Repository
             _context.SaveChanges();
             return true;
         }
-        public IList<BreakFast> GetAll()
+        public List<BreakFast> GetAll()
         {
             var breakfasts = _context.BreakFasts.Select( bf => new BreakFast
             {
@@ -49,7 +49,7 @@ namespace BuberBreakfast.Implementations.Repository
 
         public BreakFast GetById(int id)
         {
-            var breakfast = _context.BreakFasts.SingleOrDefault(User => User.Id == id);
+            var breakfast = _context.BreakFasts.FirstOrDefault(bf => bf.Id == id);
             return breakfast;
         }
 
