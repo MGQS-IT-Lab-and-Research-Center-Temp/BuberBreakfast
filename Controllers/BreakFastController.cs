@@ -2,6 +2,7 @@
 using BuberBreakfast.DTO;
 using BuberBreakfast.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace BuberBreakfast.Controllers
 {
@@ -18,7 +19,7 @@ namespace BuberBreakfast.Controllers
             var breakfast = _breakfastservice.PrintAllBreakFast();
             return View(breakfast.Data);
         }
-
+  
         // GET: BreakFastController/Details/5
         public IActionResult Details(int id)
         {
@@ -43,7 +44,7 @@ namespace BuberBreakfast.Controllers
         {
             var breakfast = _breakfastservice.CreateBreakFast(breakFast);
             if (breakfast.Status == false)
-            {
+    {
                 ViewBag.Message = breakfast.Message;
                 return View();
             }
@@ -63,14 +64,14 @@ namespace BuberBreakfast.Controllers
         {
             var breakfast = _breakfastservice.UpdateBreakFast(id, updateBreakfastDTO);
             if (breakfast.Status == false)
-            {
+        {
                 ViewBag.Message = breakfast.Message;
-                return View();
+            return View();
 
             }
             return RedirectToAction("Index");
         }
-       
+
         public IActionResult DeleteBreakfast(int id)
         {
             var breakfast = _breakfastservice.GetBreakFast(id);
@@ -81,7 +82,7 @@ namespace BuberBreakfast.Controllers
         {
             var breakFast = _breakfastservice.DeleteBreakFast(id);
             if (breakFast.Status == false)
-            {
+        {
                 ViewBag.Message = breakFast.Message;
                 return View();
 
