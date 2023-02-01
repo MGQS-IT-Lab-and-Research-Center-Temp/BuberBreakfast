@@ -4,6 +4,6 @@ namespace BuberBreakfast.DTO
 {
     public class BreakFastsResponseModels : BaseResponseModel
     {
-        public IList<BreakFast> Data { get; set; }
+        public List<BreakFast> Data { get; set; }
     }
 }

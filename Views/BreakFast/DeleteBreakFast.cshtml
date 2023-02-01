@@ -23,6 +23,11 @@
 </div>
 <span>Are you sure you want to Delete this BreakFast?</span>
 <form asp-action="Delete" method="post" asp-route-id="@Model.Data.BreakFastId">
-    <button>Delete</button>
+    <button>Yes</button>
 </form>
+<br />
+<form asp-action="Index">
+    <button>No</button>
+</form>
+
 
